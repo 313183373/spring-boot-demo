@@ -1,0 +1,32 @@
+package com.example.springbootdemo.controller;
+
+import com.example.springbootdemo.model.Employee;
+import com.example.springbootdemo.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
+@RestController
+@RequestMapping("/employee")
+public class EmployeeController {
+
+    private EmployeeService employeeService;
+
+    @Autowired
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
+    @GetMapping
+    public List<Employee> getAllEmployee() {
+        return employeeService.getAllEmployee();
+    }
+
+    @PostMapping
+    public void addEmployee(@Valid @NotNull @RequestBody Employee employee) {
+        employeeService.addEmployee(employee);
+    }
+}
