@@ -25,4 +25,8 @@ public class EmployeeService {
         return employeeDao.addEmployee(new Employee(UUID.randomUUID(), employee.getName(), employee.getAge(), employee.getGender()));
     }
 
+    public Employee getEmployeeById(UUID id) {
+        return employeeDao.getEmployeeById(id);
+    }
+
 }

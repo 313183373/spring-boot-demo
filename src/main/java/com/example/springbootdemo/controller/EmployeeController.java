@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/employee")
@@ -28,5 +29,10 @@ public class EmployeeController {
     @PostMapping
     public void addEmployee(@Valid @NotNull @RequestBody Employee employee) {
         employeeService.addEmployee(employee);
+    }
+
+    @GetMapping(path = "{id}")
+    public Employee getEmployeeById(@PathVariable("id") UUID id) {
+        return employeeService.getEmployeeById(id);
     }
 }
