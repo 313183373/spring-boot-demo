@@ -40,4 +40,9 @@ public class EmployeeController {
     public void updateEmployeeById(@PathVariable("id") UUID id, @Valid @NotNull @RequestBody Employee employee) {
         employeeService.updateEmployeeById(id, employee);
     }
+
+    @DeleteMapping(path = "{id}")
+    public void deleteEmployeeById(@PathVariable("id") UUID id) {
+        employeeService.deleteEmployeeById(id);
+    }
 }

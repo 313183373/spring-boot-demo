@@ -33,4 +33,8 @@ public class EmployeeService {
         return employeeDao.updateEmployeeById(id, employee);
     }
 
+    public int deleteEmployeeById(UUID id) {
+        return employeeDao.deleteEmployeeById(id);
+    }
+
 }

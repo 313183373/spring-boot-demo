@@ -40,7 +40,12 @@ public class FakeEmployeeDataAccessService implements EmployeeDao {
 
     @Override
     public int deleteEmployeeById(UUID id) {
-        return 0;
+        Employee e = getEmployeeById(id);
+        if (e == null) {
+            return 0;
+        }
+        DB.remove(e);
+        return 1;
     }
 
 }
