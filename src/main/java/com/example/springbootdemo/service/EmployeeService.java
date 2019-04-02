@@ -29,4 +29,8 @@ public class EmployeeService {
         return employeeDao.getEmployeeById(id);
     }
 
+    public int updateEmployeeById(UUID id, Employee employee) {
+        return employeeDao.updateEmployeeById(id, employee);
+    }
+
 }

@@ -35,4 +35,9 @@ public class EmployeeController {
     public Employee getEmployeeById(@PathVariable("id") UUID id) {
         return employeeService.getEmployeeById(id);
     }
+
+    @PutMapping(path = "{id}")
+    public void updateEmployeeById(@PathVariable("id") UUID id, @Valid @NotNull @RequestBody Employee employee) {
+        employeeService.updateEmployeeById(id, employee);
+    }
 }

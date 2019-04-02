@@ -28,8 +28,14 @@ public class FakeEmployeeDataAccessService implements EmployeeDao {
     }
 
     @Override
-    public int updateEmployeeById(UUID id) {
-        return 0;
+    public int updateEmployeeById(UUID id, Employee employee) {
+        Employee e = getEmployeeById(id);
+        if (e == null) {
+            return 0;
+        }
+        int indexOfUpdateEmployee = DB.indexOf(e);
+        DB.set(indexOfUpdateEmployee, new Employee(id, employee.getName(), employee.getAge(), employee.getGender()));
+        return 1;
     }
 
     @Override
